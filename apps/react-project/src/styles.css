@@ -8,6 +8,7 @@ body {
   color: hsl(200, 100%, 90%);
   padding: 1rem;
   margin: 0 auto;
+  max-width: 30rem;
 }
 
 .new-item-form {
@@ -111,13 +112,14 @@ body {
 .list li label::before {
   content: "";
   display: block;
-  width: 0.9rem;
-  height: 0.9rem;
+  width: 1rem;
+  height: 1rem;
   background: hsl(200, 100%, 90%);
-  border-radius: 0.25em;
+  border-radius: 0.2em;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 0.3rem;
 }
 
 .list li label:hover::before {

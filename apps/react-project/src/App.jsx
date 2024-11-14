@@ -9,7 +9,7 @@ export default function App() {
   return (
     <>
       <AddItem todoList={todoList} setTodoList={setTodoList}></AddItem>
-      <TodoList todoList={todoList}></TodoList>
+      <TodoList todoList={todoList} setTodoList={setTodoList}></TodoList>
     </>
   );
 }
