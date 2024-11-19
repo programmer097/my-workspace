@@ -1,15 +1,22 @@
-import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
 import "./styles.css";
-import TodoList from "./components/TodoList/TodoList";
-import AddItem from "./components/AddItem/AddItem";
+import Tasks from "./components/Tasks/Tasks";
+import LoginPage from "./components/LoginPage/LoginPage";
 
 export default function App() {
-  const [todoList, setTodoList] = useState(["Apple", "Orange", "Banana"]);
-
   return (
     <>
-      <AddItem todoList={todoList} setTodoList={setTodoList}></AddItem>
-      <TodoList todoList={todoList} setTodoList={setTodoList}></TodoList>
+      <Router>
+        <nav>
+          <Link to="/">Home</Link>
+          <Link to="/login">Login</Link>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Tasks />} />
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
+      </Router>
     </>
   );
 }

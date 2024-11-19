@@ -6,7 +6,7 @@
 body {
   background: #333;
   color: hsl(200, 100%, 90%);
-  padding: 1rem;
+
   margin: 0 auto;
   max-width: 30rem;
 }
@@ -66,13 +66,6 @@ body {
   margin-bottom: 0.5rem;
 }
 
-.list {
-  margin: 0;
-  padding: 0;
-  margin-left: 1rem;
-  list-style: none;
-}
-
 .list li:has(input:checked) label {
   color: hsl(200, 20%, 40%);
 }
@@ -81,6 +74,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
+  margin: 0;
+  padding: 0;
+  margin-left: 1rem;
+  list-style: none;
 }
 
 .list li {
@@ -136,4 +133,25 @@ body {
 
 .list li:has(input:checked) label:hover::before {
   background: hsl(200, 100%, 30%);
+}
+
+nav {
+  display: flex;
+  display: block;
+  width: 100%;
+  padding: 1rem 0;
+  margin-bottom: 0.5rem;
+}
+
+nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-size: 1.3rem;
+  width: 4rem;
+}
+
+nav a:active {
+  color: black;
+  background-color: white;
 }
