@@ -1,13 +1,14 @@
+import React from "react";
 import { useRef } from "react";
-import "./AddItem.css";
+import "./addItem.css";
 
 export default function AddItem({ todoList, setTodoList }) {
-  const inputRef = useRef("");
+  const inputRef = useRef<HTMLInputElement>(null);
 
   function addItemToList(event) {
     event.preventDefault();
-    setTodoList([...todoList, inputRef.current.value]);
-    inputRef.current.value = "";
+    setTodoList([...todoList, inputRef.current?.value]);
+    inputRef.current && (inputRef.current.value = "");
   }
 
   return (

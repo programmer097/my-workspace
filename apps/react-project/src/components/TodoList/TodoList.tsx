@@ -1,3 +1,4 @@
+import React from "react";
 import "./Todolist.css";
 
 export default function TodoList({ todoList, setTodoList }) {
@@ -5,11 +6,11 @@ export default function TodoList({ todoList, setTodoList }) {
     setTodoList(todoList.filter((el, i) => i !== index));
   }
 
-  const listItems = todoList.map((el, index) => {
+  const listItems = todoList?.map((el, index) => {
     return (
       <li key={index}>
         <input type="checkbox" id={index} />
-        <label htmlFor={index}>{el}</label>
+        <label htmlFor={index}>{el?.name}</label>
         <span>
           <button
             className="btn btn-danger"
