@@ -1,14 +1,17 @@
 import "./tasks.css";
+import React from "react";
 import TodoList from "../TodoList/TodoList";
 import AddItem from "../AddItem/AddItem";
 import HttpService from "../../services/http-service";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Tasks() {
   const [todoList, setTodoList] = useState([]);
   useEffect(() => {
     getTaskList();
   }, []);
+  const navigate = useNavigate();
 
   function getTaskList() {
     const httpService = new HttpService();
@@ -16,8 +19,8 @@ export default function Tasks() {
     httpService
       .get("task", { Authorization: `Bearer ${token}` })
       .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
+        if (response.status == 403) {
+          navigate("/login");
         }
         return response.json();
       })

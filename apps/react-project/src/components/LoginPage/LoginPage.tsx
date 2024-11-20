@@ -1,3 +1,4 @@
+import React from "react";
 import { useRef, useState } from "react";
 import HttpService from "../../services/http-service";
 import { useNavigate } from "react-router-dom";
@@ -5,16 +6,16 @@ import "./login.css";
 
 export default function LoginPage() {
   const navigate = useNavigate();
-  const usernameRef = useRef();
-  const passwordRef = useRef();
+  const usernameRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
   const [isAuthenticating, setIsAuthenitcating] = useState(false);
 
   function onSubmit(event) {
     setIsAuthenitcating(true);
     event.preventDefault();
     const payload = {
-      username: usernameRef.current.value,
-      password: passwordRef.current.value,
+      username: usernameRef?.current?.value,
+      password: passwordRef?.current?.value,
     };
 
     login(payload);
@@ -64,7 +65,11 @@ export default function LoginPage() {
             ref={passwordRef}
           />
         </div>
-        <button className="submit-btn" onClick={onSubmit}>
+        <button
+          disabled={isAuthenticating}
+          className="submit-btn"
+          onClick={onSubmit}
+        >
           Login
         </button>
       </form>
