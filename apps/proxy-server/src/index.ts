@@ -6,6 +6,7 @@ dotenv.config();
 
 const proxy = httpProxy.createProxyServer();
 const PORT = process.env.PORT || 4000;
+const FWD_URL = process.env.FWD_URL;
 
 const server = http.createServer((req, res) => {
   console.log(
@@ -15,7 +16,7 @@ const server = http.createServer((req, res) => {
   );
 
   // Forward all requests to the target server
-  proxy.web(req, res, { target: "http://localhost:3000" }, (err) => {
+  proxy.web(req, res, { target: FWD_URL }, (err) => {
     console.error("Proxy error:", err);
     res.writeHead(502);
     res.end("Bad Gateway");
