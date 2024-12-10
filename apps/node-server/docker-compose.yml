@@ -15,8 +15,8 @@ services:
   app:
     build: .
     container_name: backend-app
-    ports:
-      - "3000:3000"
+    # ports:
+    #   - "3000:3000"
     environment:
       - MONGODB_URL=mongodb://mongo
       - MONGODB_PORT=27017
