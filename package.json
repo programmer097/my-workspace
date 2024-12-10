@@ -4,7 +4,9 @@
   "license": "MIT",
   "scripts": {},
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "@my-workspace/source": "file:"
+  },
   "devDependencies": {
     "@nx/js": "20.1.4",
     "@swc-node/register": "~1.9.1",
